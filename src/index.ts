@@ -62,7 +62,9 @@ app.post('/upload', Upload.upload.single('file'), (req: Request, res: Response) 
         res.json({
             message: 'File uploaded successfully',
             originalFile: link,
-            compressedFile: compressedLink
+            compressedFile: compressedLink,
+            originalPath: req.file.filename,
+            compressedPath: `${timestamp}-${originalname}`
         });
     } else {
         res.send('File upload failed');

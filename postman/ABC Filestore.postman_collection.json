@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "cfcdaac3-1f7c-42f5-9141-bc1b74252150",
+		"name": "ABC Filestore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5438684",
+		"_collection_link": "https://www.postman.com/speeding-shadow-272995/workspace/abc-filestore/collection/5438684-cfcdaac3-1f7c-42f5-9141-bc1b74252150?action=share&source=collection_link&creator=5438684"
+	},
+	"item": [
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/morris/Downloads/abcq1 -db-table-structure.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete file",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/delete?path=compressed/1725505739346-abcq1 -db-table-structure.png",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "path",
+							"value": "compressed/1725505739346-abcq1 -db-table-structure.png"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get metadata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/metadata",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Storage Size",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/storage-size",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"storage-size"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

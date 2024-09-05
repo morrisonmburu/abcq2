@@ -21,6 +21,8 @@ class ReadFileStore {
                     name: file,
                     url: `${path}/${file}`,
                     size: stats.size,
+                    sizeInMB: stats.size / 1024 / 1024,
+                    sizeInKB: stats.size / 1024,
                     date: stats.birthtime
                 };
             });
@@ -56,7 +58,9 @@ class ReadFileStore {
 
             return {
                 files: files.length,
-                size: totalSize
+                size: totalSize,
+                sizeInMB: totalSize / 1024 / 1024,
+                sizeInKB: totalSize / 1024
             };
         } catch (error) {
             console.log(error);
