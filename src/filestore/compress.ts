@@ -1,21 +1,29 @@
-const compress_images = require('compress-images');
+import sharp from 'sharp';
 
 class Compress {
 
-    public compressImage = async (input: string, output: string) => {
-        compress_images(input, output, { compress_force: false, statistic: true, autoupdate: true }, false,
-            { jpg: { engine: 'mozjpeg', command: ['-quality', '60'] } },
-            { png: { engine: 'pngquant', command: ['--quality=20-50'] } },
-            { svg: { engine: 'svgo', command: '--multipass' } },
-            { gif: { engine: 'gifsicle', command: ['--colors', '64', '--use-col=web'] } },
-            function (error: any, completed: any, statistic: any) {
-                console.log('-------------');
-                console.log(error);
-                console.log(completed);
-                console.log(statistic);
-                console.log('-------------');
-            }
-        );
+    public compressPng = async (buffer: Buffer, ref: string) => {
+        await sharp(buffer)
+            .png()
+            .toFile(ref);
+    }
+
+    public compressJpg = async (buffer: Buffer, ref: string) => {
+        await sharp(buffer)
+            .jpeg()
+            .toFile(ref);
+    }
+
+    public compressWebp = async (buffer: Buffer, ref: string) => {
+        await sharp(buffer)
+            .webp()
+            .toFile(ref);
+    }
+    
+    public compressGif = async (buffer: Buffer, ref: string) => {
+        await sharp(buffer)
+            .gif()
+            .toFile(ref);
     }
     
 }

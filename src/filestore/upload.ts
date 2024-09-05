@@ -12,7 +12,7 @@ class Upload {
             });
         },
         filename: (req, file, cb) => {
-            cb(null, file.originalname + '-' + Date.now());
+            cb(null, Date.now() + '-' + file.originalname);
         }
     });
 
