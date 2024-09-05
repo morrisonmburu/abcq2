@@ -22,11 +22,21 @@ app.get('/', (req: Request, res: Response) => {
 app.post('/upload', Upload.upload.single('file'), (req: Request, res: Response) => {
     if (req.file) {
         const { originalname, mimetype, filename } = req.file;
+
+        if (!mimetype.includes('image')) {
+            const link = `http://localhost:${port}/${req.file.filename}`;
+            res.json({
+                message: 'File uploaded successfully',
+                originalFile: link,
+                originalPath: req.file.filename
+            });
+            return;
+        }
         // load file into memory and get the buffer: Cache the file in memory
         const buffer = fs.readFileSync(`storage/${filename}`);
         // compress the file
         const timestamp = Date.now();
-        // mage compressed directory
+        // make compressed directory
         fs.mkdirSync('storage/compressed', { recursive: true });
         const compressedPath = `storage/compressed/${timestamp}-${originalname}`;
 

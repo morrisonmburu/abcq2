@@ -4,7 +4,7 @@ This is a code challenge for ABC Q2 Filestore code challenge.
 ## How to setup
 1. Clone the repository
 2. Run `npm install` to install the dependencies
-3. Run `npm dev` to start the server
+3. Run `npm run dev` to start the server
 4. Open `http://localhost:3001` or `http://localhost:3000` on your browser
 
 ## You can also test the API using Postman
